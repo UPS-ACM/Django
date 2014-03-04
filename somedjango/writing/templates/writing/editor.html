@@ -1,0 +1,40 @@
+<!-- Load in jQuery and jQuery UI -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> 
+<link rel = "stylesheet" href = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+
+
+<style>
+  div.draggable 
+	{ 
+	width: 150px; height: 150px; padding: 0.5em; border-style: solid; 
+	left:0; right:0; margin-left:auto; margin-right: auto;
+	}
+   textarea.d
+	{
+	width: 150px; height: 120px; margin: 0;
+	}
+</style>
+
+
+<!DOCTYPE html>
+
+<head> 
+
+<script>
+$(document).ready(function() {
+	$(".draggable").draggable();
+	$(".exit").click(function() {
+		$(this).parent().remove();
+	});
+});
+</script>
+
+</head>
+<body>
+
+'<div class = "draggable"> <span class = "exit"> &#10006 </span> <form> <textarea class = "d"> </textarea> </form> </div>'
+
+</body>
+
+</html>

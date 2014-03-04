@@ -1,0 +1,47 @@
+{% extends "writing/base.html" %}
+
+{% block head %}
+	<!-- Load in jQuery -->
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'> 
+	</script> 
+
+	<script>
+	$(document).ready(function() {
+		$(".hovers").find("button").hide();
+		$(".hovers").hover(function() {
+			$(this).css("background-color", "E0FFFF");
+			$(this).find("button").show();
+		},
+	 	function() {
+			$(this).css("background-color", "FFFFFF");
+			$(this).find("button").hide();
+	 	});
+		});
+	</script>
+{% endblock %}
+
+{% block content %}
+<button> <a style = "text-decoration : none"
+href="/writing/addpaper"> Add Paper </a> 
+</button>
+
+{% if get_papers %}
+    {% for thepaper in get_papers %}
+	<div class = "hovers">
+        <h2> <a href="{% url 'paper' thepaper.title %}">
+	 {{thepaper.title}} </a> </h2> <p>
+	Author: {{thepaper.by_user}} <p>
+	Due: {{thepaper.due}}
+
+	<form action="" method="post">{% csrf_token %}
+	<input type="hidden" name="thepaper" value="{{ thepaper.title }}" />
+	<input class = "hovers" style = "background-color: F08080" 
+		type="submit" value="Delete" />
+	</form>
+	</div>
+    {% endfor %}
+{% else %}
+    <p>No papers are here... yet.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "writing/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+
+<script type="text/javascript" src="{% static "writing/tinymce/tinymce.min.js" %}"> </script>
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea"
+ });
+</script>
+
+<!-- Load in jQuery and jQuery UI -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> 
+<link rel = "stylesheet" href = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+
+<script>
+$(document).ready(function() {
+	$("#id_due").datepicker();
+});
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+<form action="" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

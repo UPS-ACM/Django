@@ -1,0 +1,18 @@
+{% extends "writing/base.html" %}
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'writing/base.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'writing/layout.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'writing/skeleton.css' %}" />
+
+{% block content %}
+
+{% if get_paper %}
+        <h2> {{get_paper.title}} </h2> <p>
+	Author: {{get_paper.by_user}}<p>
+	{{get_paper.body|safe}}
+{% else %}
+    <p>Nothing here... yet.</p>
+{% endif %}
+
+{% endblock %}
