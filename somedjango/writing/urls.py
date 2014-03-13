@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     url(r'^$', views.IndexView, name='index'),
     url(r'^add_user/$', views.add_user, name = 'add_user'),
     url(r'^addpaper/$', views.add_paper, name='add_paper'),
-    url(r'^(?P<t>[\w|\W]+)/$', views.paper, name = 'paper'),
+    url(r'^(?P<name>[\w|\W]+)/$', views.building, name = 'goto_building'),
+    url(r'^(?P<name>[\w|\W]+)/(?P<floor>[\w|\W]+)/$', views.Bin, name = 'goto_bin'),
 )

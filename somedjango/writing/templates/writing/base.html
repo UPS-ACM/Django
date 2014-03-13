@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'writing/base.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'writing/layout.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'writing/skeleton.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'writing/flat-ui/css/flat-ui.css' %}" />
 
 <!DOCTYPE html>
 
@@ -42,6 +43,27 @@
 		<div class="sixteen columns">
 			<h1 class="remove-bottom" style="margin-top: 40px">Recycling App</h1>
 			<h5>Version .01</h5>
+
+			<nav class="navbar navbar-inverse" role="navigation">
+  			<div class="navbar-header">
+   			 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+     		 <span class="sr-only">Toggle navigation</span>
+    		</button>
+   			 <a class="navbar-brand" href="#">Recycling App</a>
+  			</div>
+  			<div class="collapse navbar-collapse" id="navbar-collapse-01">   
+    <ul class="nav navbar-nav">           
+       <li>
+      <a href="#">
+        Menu item
+             <span class="navbar-new">1</span>
+      </a>
+    </li>
+    </ul>    
+       <p class="navbar-text navbar-right">Signed in as <a class="navbar-link" href="#"> Name </a></p>
+  </div><!-- /.navbar-collapse -->
+</nav><!-- /navbar -->
+
 			<p><a href = "{% url 'logout' %}"> Logout </a>
 			<hr/>
 		</div>

@@ -1,0 +1,21 @@
+{% extends "writing/base.html" %}
+
+{% block head %}
+	<!-- Load in jQuery -->
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'> 
+	</script> 
+
+{% endblock %}
+
+{% block content %}
+
+	{% if get_bins %}
+		{% for bin in get_bins %}
+			<a href = "#"> {{floor.name}} </a>
+			<br>
+		{% endfor %}
+	{% endif %}
+
+	<a href = "/writing/"> Back </a>
+
+{% endblock %}

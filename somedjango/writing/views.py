@@ -6,14 +6,31 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 
-from writing.models import Paper, Comments, PaperForm
+#from writing.models import Paper, Comments, PaperForm, Building
+from writing.models import Building, Bin, BinStatus, Floor
 
 @login_required(login_url='/writing/login/')
 def IndexView(request):
-	if request.method == 'POST':
-        	Paper.delete(Paper.objects.get(title = request.POST['thepaper']))
-	get_papers = Paper.objects.filter(by_user = request.user).order_by('-time')
-	return render(request, 'writing/index.html', {'get_papers' : get_papers})
+	get_locations = Building.objects.all()
+	return render(request, 'writing/index.html', {'get_locations' : get_locations})
+
+@login_required(login_url='/writing/login/')
+def building(request, name):
+    get_locations = Floor.objects.filter(building__name = name)
+    return render(request, 'writing/building.html', {'get_locations' : get_locations})
+
+@login_required(login_url='/writing/login/')
+def Bin(request, name, floor):
+    get_bins = Bin.objects.filter(building__name = name).filter(floor__name = floor)
+    return render(request, 'writing/building.html', {'get_bins' : get_bins, 'name' : name})
+
+
+##@login_required(login_url='/writing/login/')
+##def IndexView(request):
+##	if request.method == 'POST':
+##        	Paper.delete(Paper.objects.get(title = request.POST['thepaper']))
+##	get_papers = Paper.objects.filter(by_user = request.user).order_by('-time')
+##	return render(request, 'writing/index.html', {'get_papers' : get_papers})
 
 @login_required(login_url='/writing/login/')
 def paper(request, t):
