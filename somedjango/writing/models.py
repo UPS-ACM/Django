@@ -10,13 +10,13 @@ class Building(models.Model):
 
 class Floor(models.Model):
     name = models.CharField(max_length = 1000)
-    building = models.ManyToManyField(Building)
+    building = models.ForeignKey(Building)
 
     def __unicode__(self):
         return self.name
 
 class Bin(models.Model):
-    building = models.ManyToManyField(Building);
+    building = models.ForeignKey(Building);
     description = models.TextField()
     floor = models.ForeignKey(Floor)
     location = models.CharField(max_length = 1000)
@@ -29,6 +29,9 @@ class BinStatus(models.Model):
     status = models.CharField(max_length = 1000)    # Emptied, full, not_full
     time = models.DateTimeField(auto_now = True)    # timestamp current time
     byUser = models.ForeignKey(User, related_name = 'byUser')
+
+    def __unicode__(self):
+        return unicode(self.theBin.building.name + " " + self.theBin.description + " " + self.theBin.floor.name + " " + self.status)
 
 ##### OLD
 

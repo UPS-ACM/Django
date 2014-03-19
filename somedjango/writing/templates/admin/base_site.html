@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'writing/base.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'writing/layout.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'writing/skeleton.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'writing/flat-ui/css/flat-ui.css' %}" />
+
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'Recycling App Admin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Django administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

@@ -8,14 +8,12 @@
 {% endblock %}
 
 {% block content %}
-
 	{% if get_locations %}
 		{% for floor in get_locations %}
-			<a href = '{% url "goto_bin" floor.name %}'> {{floor.name}} {{name}} </a>
+			<a href = '{% url "goto_bin" floor.building floor.name %}'> {{floor.name}} {{name}} </a>
 			<br>
 		{% endfor %}
 	{% endif %}
-
 	<a href = "/writing/"> Back </a>
 
 {% endblock %}

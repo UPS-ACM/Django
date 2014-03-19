@@ -8,12 +8,20 @@
 {% endblock %}
 
 {% block content %}
-
 	{% if get_bins %}
 		{% for bin in get_bins %}
-			<a href = "#"> {{floor.name}} </a>
-			<br>
+			<div>
+				{{bin.theBin.description}} <br>
+				Last Marked: {{bin.status}} <br>
+				<form action="{% url 'goto_bin' bin.theBin.building.name bin.theBin.floor.name %}" method="get">
+				<input type = "hidden" name = "bin" value = {{bin.theBin.pk}} />
+				<button class="btn btn-success" name = "submit" value = "Empty">  Empty </button>  <br> 
+				<button class="btn btn-danger" name = "submit" value = "Full"> Full </button> <br>
+				<button class="btn btn-warning" name = "submit" value = "Not Empty"> Not Empty </button> <br>
+				</form>
+			</div>
 		{% endfor %}
+
 	{% endif %}
 
 	<a href = "/writing/"> Back </a>

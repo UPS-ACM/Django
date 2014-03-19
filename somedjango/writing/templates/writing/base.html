@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'writing/base.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'writing/layout.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'writing/skeleton.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'writing/flat-ui/bootstrap/css/bootstrap.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'writing/flat-ui/css/flat-ui.css' %}" />
 
 <!DOCTYPE html>
@@ -44,6 +45,7 @@
 			<h1 class="remove-bottom" style="margin-top: 40px">Recycling App</h1>
 			<h5>Version .01</h5>
 
+
 			<nav class="navbar navbar-inverse" role="navigation">
   			<div class="navbar-header">
    			 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
@@ -60,7 +62,10 @@
       </a>
     </li>
     </ul>    
-       <p class="navbar-text navbar-right">Signed in as <a class="navbar-link" href="#"> Name </a></p>
+
+    	{% if user.is_authenticated %}
+      		<p class="navbar-text navbar-right"> Hello <a class="navbar-link" href="#"> {{user}}! </a></p>
+       	{% endif %}
   </div><!-- /.navbar-collapse -->
 </nav><!-- /navbar -->
 
