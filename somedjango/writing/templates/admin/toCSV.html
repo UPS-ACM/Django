@@ -1,0 +1,44 @@
+
+<!-- This form and template is a bit hacky and sketchy so it is worth some explanation.
+
+	1. Extending the admin interface is not simple. It may be worth making the viewer part of the
+	main app and not admin, but it certainly is nicer in the admin interface.
+
+	2. To extend the admin interface, you make a model object and give it new views. For now I've hardcoded this to
+	/admin/writing/building/exportForm. We may want to change this. We can link to this URL from the admin, but it's
+	a little clunky.
+
+	3. Getting jquery UI on this page was tricky. The admin view loads jquery and I had to force loading jquery UI
+	upfront. This meant removing the block head tag and doing some script importing above the  extends tag.
+	It works, but there may be a more elegant solution. Trying to import jquery ui in a tag or in the content block
+	just didn't work.
+
+     --->
+
+	<!-- Load in jQuery -->
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'> 
+	</script> 
+
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  
+  <script>
+  $(function() {
+    $( "#id_start" ).datepicker();
+    $( "#id_end" ).datepicker();
+  });
+  </script>
+
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+
+			<div>
+				<h1> Export data to a spreadsheet </h1> <br>
+				<form action = "/admin/writing/building/getCSV" method="get">
+					{{form.as_p}}
+				<input type="submit" value= "Export" />
+				</form>
+			</div>
+
+{% endblock %}

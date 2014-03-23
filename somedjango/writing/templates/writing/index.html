@@ -11,13 +11,16 @@
 
 {% if get_locations %}
     {% for theLocation in get_locations %}
-    	<button class = "btn btn-primary"> 
-		<a href = '{% url "goto_building" theLocation.name %}'> 
-		{{theLocation.name}} 
-		</a> 
+    <div class = "eight columns">
+
+    	<a href = '{% url "goto_building" theLocation.name %}'> 
+    	<button class = "btn btn-info binbutton"> 
+		{{theLocation.name}}
     	</button>
+    	</a> 
 
     	<br>
+    </div>	
 
     {% endfor %}
 {% else %}

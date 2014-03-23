@@ -58,21 +58,6 @@ def bin(request, name, floor):
 
     return render(request, 'writing/bin.html', {'get_bins': get_status})
 
-def returnCSV(request):
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="output.csv"'
-
-    # query
-    theBins = BinStatus.objects.order_by('-time')
-
-    writer = csv.writer(response)
-    writer.writerow(['Date', 'Building', 'Floor', 'Description', 'Status', 'User'])
-    for binStatus in theBins :
-        writer.writerow([binStatus.time, binStatus.theBin.building, binStatus.theBin.floor, 
-            binStatus.theBin.description, binStatus.status, binStatus.byUser])
-
-    return response
-
 
 ##@login_required(login_url='/writing/login/')
 ##def IndexView(request):

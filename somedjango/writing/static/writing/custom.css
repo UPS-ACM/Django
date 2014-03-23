@@ -1,0 +1,125 @@
+/* Right now this is all I'm really using. */
+
+.binbuttons
+{
+    background: #ddd;
+    border:1px solid #aaa;
+    margin-bottom:4px !important;
+}
+
+.binbutton
+{
+    margin-bottom:4px !important;
+}
+
+.button_group {
+    margin:10px
+}
+
+/* All of this is old but potentially helpful */
+
+/*
+.binbuttons {
+    background: #ddd;
+    border:1px solid #aaa;
+    margin-bottom:4px !important;
+}
+.binbuttons p {
+    margin:5px 0 0 10px;
+}
+.binbuttons p strong {
+    margin-left:5px;
+}
+.binbuttons p span.icon {
+    color:#8E44AD;
+}
+.button_group {
+    margin:10px
+}
+.navbar{
+    margin:25px 0;
+}
+nav ul { margin-bottom:0; }
+nav ul li { 
+    display:inline-block; 
+    margin-right:15px; 
+    font-size:18px; 
+}
+nav ul li a { 
+    text-decoration:none; 
+    background:white; 
+    padding:5px; 
+    border-radius:18px; 
+}
+nav ul li a.home:before { 
+    content:url(/img/home.png); 
+    margin-right:3px; 
+    position:relative; 
+    top:1px; 
+}
+nav ul li a.build:before { 
+    content:url(/img/list-ordered.png); 
+    margin-right:3px; 
+    position:relative; 
+    top:1px; 
+}
+
+
+.buildbuttons {
+    background: #ddd;
+    border:1px solid #aaa;
+    margin-bottom:4px !important;
+    padding: 0px 0px 0px 13px;
+}
+
+a.start {
+    padding:10px;
+    text-decoration:none;
+    font-size:30px; 
+    margin:0 auto; 
+    display:block; 
+    width:225px; 
+    line-height:45px; 
+}
+a.start span {
+    margin-right:5px;
+}
+
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  border: 1px solid #e3e3e3;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.well blockquote {
+  border-color: #ddd;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+.well-large {
+  padding: 24px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.well-small {
+  padding: 9px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+*/
+/*
+
+.container{
+background:#ecf0f1;
+border-radius:10px;
+margin:40px auto;
+padding:10px;
+} */
