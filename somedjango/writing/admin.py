@@ -35,21 +35,20 @@ class MyModelAdmin(admin.ModelAdmin):
                         # query all items
                         start = form.cleaned_data['start']
                         end = form.cleaned_data['end']
-                        if(request.GET.get('all', '')):
-                                exportAll = form.cleaned_data['all']
-
-                        if(request.GET.get('all', '')):
+                        theBins = []
+                        if(request.GET.get('exportAll', '')):
+                                exportAll = form.cleaned_data['exportAll']
                                 theBins = BinStatus.objects.order_by('-time')
 
                         # query items in date range
                         elif(start and end):
                                 theBins = BinStatus.objects.filter(time__range = (start, end)).order_by('-time')
 
-                                writer = csv.writer(response)
-                                writer.writerow(['Date', 'Building', 'Floor', 'Description', 'Status', 'User'])
-                                for binStatus in theBins:
-                                        writer.writerow([binStatus.time, binStatus.theBin.building, binStatus.theBin.floor, 
-                                                binStatus.theBin.description, binStatus.status, binStatus.byUser])
+                        writer = csv.writer(response)
+                        writer.writerow(['Date', 'Building', 'Floor', 'Description', 'Status', 'User'])
+                        for binStatus in theBins:
+                                writer.writerow([binStatus.time, binStatus.theBin.building, binStatus.theBin.floor, 
+                                        binStatus.theBin.description, binStatus.status, binStatus.byUser])
 
                         return response
     			#return HttpResponseRedirect('admin/')

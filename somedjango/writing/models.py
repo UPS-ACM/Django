@@ -29,6 +29,7 @@ class BinStatus(models.Model):
     status = models.CharField(max_length = 1000)    # Emptied, full, not_full
     time = models.DateTimeField(auto_now = True)    # timestamp current time
     byUser = models.ForeignKey(User, related_name = 'byUser')
+    #notification = models.BooleanField(default = False)
 
     def __unicode__(self):
         return unicode(self.theBin.building.name + " " + self.theBin.description + " " + self.theBin.floor.name + " " + self.status)
