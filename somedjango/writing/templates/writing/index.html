@@ -2,27 +2,97 @@
 
 {% block head %}
 	<!-- Load in jQuery -->
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'> 
-	</script> 
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script> 
+    <script src= 'http://code.jquery.com/ui/1.10.4/jquery-ui.js'></script>
+     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+
+    <script>
+  $(function() {
+    $( "#accordion" ).accordion({collapsible: true, active: false});
+  });
+  </script>
 
 {% endblock %}
 
 {% block content %}
 
 {% if get_locations %}
+<div class = "eight columns">
+
+<div id="accordion">
+    <h1> Academic </h1>
+  <div>
     {% for theLocation in get_locations %}
-    <div class = "eight columns">
+    {% if theLocation.typename == "Academic" %}
+        <button class = "btn btn-default">
+    <a href = '{% url "goto_building" theLocation.name %}'>
 
-    	<a href = '{% url "goto_building" theLocation.name %}'> 
-    	<button class = "btn btn-info binbutton"> 
 		{{theLocation.name}}
-    	</button>
-    	</a> 
 
-    	<br>
-    </div>	
+    </button>
+    </a>
+    	<br><br>
 
+    {% endif %}
     {% endfor %}
+    </div>
+
+    <h1> Administrative </h1>
+      <div>
+    {% for theLocation in get_locations %}
+        {% if theLocation.typename == "Administrative" %}
+        <button class = "btn btn-default">
+    <a href = '{% url "goto_building" theLocation.name %}'>
+
+    {{theLocation.name}}
+
+    </button>
+    </a>
+      <br><br>
+
+    {% endif %}
+    {% endfor %}
+    </div>
+
+    <h1> Athletic </h1>
+
+      <div>
+    {% for theLocation in get_locations %}
+    {% if theLocation.typename == "Athletic" %}
+        <button class = "btn btn-default">
+    <a href = '{% url "goto_building" theLocation.name %}'>
+
+    {{theLocation.name}}
+
+    </button>
+    </a>
+      <br><br>
+
+    {% endif %}
+    {% endfor %}
+    </div>
+
+    <h1> Residential </h1>
+
+      <div>
+    {% for theLocation in get_locations %}
+    {% if theLocation.typename == "Residential" %}
+        <button class = "btn btn-default">
+    <a href = '{% url "goto_building" theLocation.name %}'>
+
+    {{theLocation.name}}
+
+    </button>
+    </a>
+      <br><br>
+
+    {% endif %}
+    {% endfor %}
+    </div>
+
+</div>
+</div>
+
 {% else %}
     <p> No buildings to display. </p>
 {% endif %}
