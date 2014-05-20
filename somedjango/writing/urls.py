@@ -3,6 +3,9 @@ from django.contrib.auth.decorators import login_required
 
 from writing import views
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
 urlpatterns = patterns('',
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'writing/login.html'}, name = 'login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page' : '/writing/'}, name = 'logout'),
@@ -12,3 +15,5 @@ urlpatterns = patterns('',
     url(r'^(?P<name>[\w|\W]+)/(?P<floor>[\w|\W]+)/$', views.bin, name = 'goto_bin'),
     url(r'^(?P<name>[\w|\W]+)/$', views.building, name = 'goto_building'),
 )
+
+urlpatterns += staticfiles_urlpatterns()
