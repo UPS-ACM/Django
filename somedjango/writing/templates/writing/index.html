@@ -24,12 +24,8 @@
   <div>
     {% for theLocation in get_locations %}
     {% if theLocation.typename == "Academic" %}
-        <button class = "btn btn-default">
-    <a href = '{% url "goto_building" theLocation.name %}'>
-
+    <a class = "btn btn-default"  href = '{% url "goto_building" theLocation.name %}'>
 		{{theLocation.name}}
-
-    </button>
     </a>
     	<br><br>
 

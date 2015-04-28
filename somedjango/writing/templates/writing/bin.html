@@ -9,6 +9,8 @@
 
 {% block content %}
 	{% if get_bins %}
+		<a href = '/writing/' class = 'fui-arrow-left btn btn-default'> </a><br/>
+		<b>Location: </b> {{get_bins.0.theBin.floor}} <br/></br>
 		{% for bin in get_bins %}
 			<div class="four columns">
 				<span class="icon fui-location"></span>
@@ -18,7 +20,7 @@
 
 				<form action="{% url 'goto_bin' bin.theBin.building.name bin.theBin.floor.name %}" method="get">
 				<input type = "hidden" name = "bin" value = {{bin.theBin.pk}} />
-				<button class="btn btn-success binbutton" name = "submit" value = "Empty">  Empty </button>  <br> 
+				<button class="btn btn-success binbutton" name = "submit" value = "Empty">  Emptied </button>  <br> 
 				<button class="btn btn-danger binbutton" name = "submit" value = "Full"> Full </button> <br>
 				<button class="btn btn-warning binbutton" name = "submit" value = "Not Empty"> Not Empty </button> <br>
 				</form>
